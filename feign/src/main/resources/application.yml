@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: feign-app
+
+server:
+  port: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+#temporary workaround due to issue https://github.com/spring-cloud/spring-cloud-commons/issues/951
+greeting-other:
+  service:
+    name: web-flux-app
+
+#greeting-other:
+#  ribbon:
+#    # the eureka vipAddress of the target service
+#    DeploymentContextBasedVipAddresses: web-flux-app
